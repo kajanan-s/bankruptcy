@@ -1,0 +1,24 @@
+# Base dependency must come first
+numpy==1.23.5; python_version == '3.10' and platform_system == 'Windows'
+numpy==1.24.4; python_version == '3.10' and platform_system != 'Windows'
+
+# Core (unchanged)
+fastapi==0.95.2
+uvicorn==0.22.0
+
+# ML Stack (only pandas changed)
+scikit-learn==1.2.2; python_version == '3.10'
+pandas==1.5.3; python_version == '3.10' and platform_system != 'Windows'
+pandas==1.5.3; python_version == '3.10' and platform_system == 'Windows' and platform_machine == 'x86_64'
+joblib==1.2.0
+
+# Validation/Security (unchanged)
+pydantic==1.10.7
+python-dotenv==1.0.0
+
+# Testing (unchanged)
+httpx==0.24.1
+pytest==7.4.4
+
+# GCP (unchanged)
+google-cloud-secret-manager==2.16.1; python_version == '3.10'
