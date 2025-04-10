@@ -3,7 +3,7 @@ from sklearn.preprocessing import OneHotEncoder
 
 class DataPreprocessor:
     def __init__(self):
-        self.encoder = OneHotEncoder(handle_unknown='ignore')
+        self.encoder = OneHotEncoder(handle_unknown='ignore', sparse_output=False)
     
     def fit(self, X: pd.DataFrame):
         if 'company_size' in X.columns:
@@ -12,7 +12,7 @@ class DataPreprocessor:
     def transform(self, X: pd.DataFrame) -> pd.DataFrame:
         X = X.copy()
         if 'company_size' in X.columns:
-            encoded = self.encoder.transform(X[['company_size']]).toarray()
+            encoded = self.encoder.transform(X[['company_size']])
             encoded_df = pd.DataFrame(
                 encoded,
                 columns=self.encoder.get_feature_names_out()
