@@ -5,6 +5,5 @@ __pycache__
 .Python
 env/
 venv/
-*.log
-.git
-.gitignore
+.env
+test_results.json
